@@ -5,15 +5,12 @@ const { getAllFromDatabase, getFromDatabaseById, addToDatabase, updateInstanceIn
 
 minionsRouter.use('/:minionId', (req, res, next) => {
     const minionId = req.params.minionId
-    if (Number(minionId) === NaN) {
-        res.status(404).send()
-    }
-    if (minionId) {
-        req.minionId = minionId
-        next()
-    } else {
-        res.status(404).send()
-    }
+        if (minionId) {
+            req.minionId = minionId
+            next()
+        } else {
+            res.status(404).send()
+        }
 })
 
 minionsRouter.get('/', (req, res, next) => {
